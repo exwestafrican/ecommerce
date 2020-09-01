@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.spacing > * + * {
+  margin-top: var(--spacer, 2rem);
+}
+.container {
+  width: 85%;
+  max-width: 65%;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-text, #fff);
+  font-weight: 700;
+  font-size: 1.125rem;
+  padding: 0.5em 1.25em;
+  background-color: var(--clr-accent, pink);
+  border-radius: 0.25em;
+  -webkit-transition: opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+  transition: opacity 250ms linear, -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, opacity 250ms linear;
+  transition: transform 250ms ease-in-out, opacity 250ms linear,
+    -webkit-transform 250ms ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.header-title {
+  font-size: clamp(2rem, calc(3vw + 0.5rem), 3.5rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.hero {
+  color: #fff;
+  text-align: center;
+  padding: 15em 0;
+  background: #222;
+}
+
+@supports (background-blend-mode: multiply) {
+  .hero {
+    background: url(/img/shoe-2.png), radial-gradient(#444, #111);
+    background-blend-mode: multiply;
+    /* background attachment fixed gives a scrolling effect */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+section {
+  padding: 3em 0;
+}
+.section-title {
+  text-align: center;
+  font-size: clamp(2rem, calc(3vw + 0.5rem), 3.5rem);
+  color: #17353d;
+  line-height: 1;
+  margin-bottom: 3rem;
+}
+
+.split {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.split > * {
+  flex-basis: 30%;
+  min-width: 15em;
+}
+
+.featured {
+  background: #eee;
+}
+
+.featured__item {
+  transform: scale(0.85);
+  transition: transform 250ms ease-in-out;
+  position: relative;
+  text-decoration: none;
+  color: #111;
+}
+
+.featured__item:hover,
+.featured__item:focus {
+  transform: scale(1);
+}
+
+.featured__item:hover .featured__details,
+.featured__item:focus .featured__details {
+  opacity: 1;
+}
+
+.featured__item::after {
+  content: "";
+  position: absolute;
+  background: #2193b0;
+  padding: 70% 70% 0 0;
+  border-radius: 50%;
+  top: 10%;
+  left: 10%;
+  z-index: -1;
+}
+
+.featured__details {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5em;
+  line-height: 1.2;
+  opacity: 0;
+  transition: opacity 250ms linear;
+}
+
+.featured__price {
+  display: block;
+}
+
+.product {
+  background: radial-gradient(
+    var(--clr-inner, limegreen),
+    var(--clr-outer, purple)
+  );
+  padding: 3em;
+  border-radius: 1em;
+  margin-bottom: 5em;
+  text-align: center;
+}
+.product__img {
+  margin: -5em 0 0 0;
+}
+.hero {
+  --clr-accent: #faa700;
+}
+.product__description {
+  margin: 1em 0;
+}
+@media (min-width: 45em) {
+  .product {
+    text-align: left;
+    margin-bottom: 9em;
+  }
+  .product__title {
+    margin: 0;
+  }
+  .product__image {
+    float: right;
+    width: 65%;
+    shape-outside: url(../img/shoe-1.png);
+    shape-margin: 1em;
+    margin: 0 -5em 0 0;
+  }
+  .product.shoe-left .product__image {
+    float: left;
+    shape-outside: url(../img/shoe-2.png);
+    margin: 0 0 0 -5em;
+    shape-margin: 2em;
+  }
+}
+.shoe-red {
+  --clr-inner: #faa700;
+  --clr-outer: #e48d00;
+  --clr-accent: #a1173c;
+}
+
+.shoe-white {
+  --clr-inner: #fce4b3;
+  --clr-outer: #eac886;
+  --clr-accent: #2f4858;
+}
+
+.shoe-blue {
+  --clr-inner: #6dd5ed;
+  --clr-outer: #2193b0;
+  --clr-accent: #008951;
+}
